@@ -3,12 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>آلة حاسبة بسيطة</title>
+    <title>آلة حاسبة متقدمة</title>
     <link rel="stylesheet" href="style.css">
+    <script src="theme.js"></script>
 </head>
 <body>
     <div class="calculator">
-        <h2>آلة حاسبة</h2>
+        <div class="top-bar">
+            <button id="theme-toggle" title="تبديل الثيم">🌓</button>
+            <span id="datetime"></span>
+        </div>
+        <h2>آلة حاسبة متقدمة</h2>
         <input type="text" id="display" readonly>
         <div class="buttons">
             <button onclick="appendNumber('7')">٧</button>
@@ -16,23 +21,31 @@
             <button onclick="appendNumber('9')">٩</button>
             <button onclick="appendOperator('/')">÷</button>
             <button onclick="percent()">٪</button>
-            
+            <button onclick="sqrt()">√</button>
+            <button onclick="power()">^</button>
             <button onclick="appendNumber('4')">٤</button>
             <button onclick="appendNumber('5')">٥</button>
             <button onclick="appendNumber('6')">٦</button>
             <button onclick="appendOperator('*')">×</button>
             <button onclick="clearDisplay()">مسح</button>
-            
+            <button onclick="memorySave()">MS</button>
+            <button onclick="memoryRecall()">MR</button>
             <button onclick="appendNumber('1')">١</button>
             <button onclick="appendNumber('2')">٢</button>
             <button onclick="appendNumber('3')">٣</button>
             <button onclick="appendOperator('-')">−</button>
             <button onclick="appendDot()">.</button>
-            
+            <button onclick="copyResult()" title="نسخ النتيجة">📋</button>
+            <button onclick="showHelp()" title="مساعدة">؟</button>
             <button onclick="appendNumber('0')">٠</button>
             <button onclick="appendOperator('+')">+</button>
             <button class="equal" onclick="calculate()">=</button>
         </div>
+        <div class="history">
+            <h3>سجل العمليات</h3>
+            <ul id="history-list"></ul>
+        </div>
+        <div id="error-message"></div>
     </div>
     <script src="script.js"></script>
 </body>
